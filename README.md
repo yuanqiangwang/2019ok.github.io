@@ -1,1 +1,1 @@
-# 2019ok.github.io
+bbs.2019ok.com 于2022年8月30日停运
