@@ -9,7 +9,39 @@
 
     <h1>我们终究会再相见，永远不分开</h1>
     <p>bbs.2019ok.com 已于2022年8月30日停止运营</p>
+<p>想你的：<span id="timePassed">...</span></p>
 
+    <script>
+        // 设置纪念日的日期（格式：年, 月 - 1, 日）
+        const anniversary = new Date(2020, 9, 1, 0, 0, 0); // 2020年10月1日 00:00:00
+        const timePassedElement = document.getElementById("timePassed");
+
+        function calculateTimePassed() {
+            const now = new Date();
+            let delta = Math.floor((now - anniversary) / 1000); // 得到总秒数
+
+            const years = Math.floor(delta / (365 * 24 * 3600));
+            delta %= (365 * 24 * 3600);
+
+            const months = Math.floor(delta / (30 * 24 * 3600));
+            delta %= (30 * 24 * 3600);
+
+            const days = Math.floor(delta / (24 * 3600));
+            delta %= (24 * 3600);
+
+            const hours = Math.floor(delta / 3600);
+            delta %= 3600;
+
+            const minutes = Math.floor(delta / 60);
+            const seconds = delta % 60;
+
+            // 显示时间差
+            timePassedElement.textContent = `${years}年 ${months}月 ${days}天 ${hours}小时 ${minutes}分钟 ${seconds}秒`;
+        }
+
+        // 每秒更新一次
+        setInterval(calculateTimePassed, 1000);
+    </script>
 </body>
 
 </html>
